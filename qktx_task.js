@@ -1,11 +1,14 @@
 /*
-我的趣看天下邀请码:9797311
+我的趣看天下邀请码:9656852
+公众号iosrule by红鲤鱼与绿鲤鱼与驴 2020.7.3
 
 #趣看天下签到定时执行任务loon定时格式参考
 #趣看天下task Loon的格式
-cron "0 21,31,50 0-22 * * ?" script-path=https://raw.githubusercontent.com/tsuyoshi727/sbshine/master/qktx_task.js, tag=趣看天下
+cron "0 21,31,50 0-22 * * ?" script-path=qktx_task.js, tag=趣看天下
 
-2020.7.4更新，重大bug更新
+Qx的参考app例子,有不懂的加微信撸金币群。
+
+2020.7.4更新，重大bug更新2
 提示:
 1.获取邀请好友界面开宝箱cookie
 2.每日任务界面的开宝箱cookie
@@ -17,11 +20,11 @@ cron "0 21,31,50 0-22 * * ?" script-path=https://raw.githubusercontent.com/tsuyo
 
 获取ck完毕可以禁止该js
 #趣看天下ck Qx
-https:\/\/(appv8\.qukantianxia\.com|appv7\.qukantx\.com) url script-request-header https://raw.githubusercontent.com/tsuyoshi727/sbshine/master/qktx_cookie.js
+https:\/\/(appv8\.qukantianxia\.com|appv7\.qukantx\.com) url script-request-header qktx_cookie.js
 
 #趣看天下获取ck loon
 
-http-request https:\/\/(appv8\.qukantianxia\.com|appv7\.qukantx\.com) script-path=https://raw.githubusercontent.com/tsuyoshi727/sbshine/master/qktx_cookie.js, requires-body=true, timeout=30, tag=趣看天下ck
+http-request https:\/\/(appv8\.qukantianxia\.com|appv7\.qukantx\.com) script-path=qktx_cookie.js, requires-body=true, timeout=30, tag=趣看天下ck
 
 ====================================
 
@@ -33,9 +36,9 @@ MITM=appv8.qukantianxia.com,appv7.qukantx.com
 
 
 
-const Notice=10;//设置运行多少次才通知。
+const Notice=1;//设置运行多少次才通知。
 const log=1;//设置0关闭日志,1开启日志
-const noNotice=1;//1关闭通知0打开通知.
+const noNotice=0;//1关闭通知0打开通知.
 
 //以上配置说明
 
@@ -412,11 +415,8 @@ if(log==1)console.log("开始阅读")
 {
 if(log==1)console.log("趣看天下阅读中...🌱🌱🌱🌱🌱🌱🌱🌱🌱");
 qktx_coin+=obj.data.coinCount;
-qktx_urlrck=isdefined(qktx_urlrck,sb);
-setTimeout(function(){htt_bestread4(flag,sb);},35* 1000 );
-}
-else if(data.indexOf("很久")>0||data.indexOf("锁")>0[data.indexOf("先阅读")>0]||data.indexOf("操作异常")>0)
-{if(log==1)console.log("趣看天下阅读完毕🌾🌾🌾🌾🌾🌾");
+
+
   qktx_msg("",qktx_nm+"-[阅读]"+qktx_coin+"💰");qktx_coin=0;}})}
 
 
@@ -559,8 +559,6 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
-
-
 
 
 
