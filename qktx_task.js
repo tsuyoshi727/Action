@@ -1,12 +1,9 @@
 /*
 我的趣看天下邀请码:9797311
 
-
 #趣看天下签到定时执行任务loon定时格式参考
 #趣看天下task Loon的格式
 cron "0 21,31,50 0-22 * * ?" script-path=qktx_task.js, tag=趣看天下
-
-
 
 2020.7.4更新，重大bug更新
 提示:
@@ -36,9 +33,9 @@ MITM=appv8.qukantianxia.com,appv7.qukantx.com
 
 
 
-const Notice=10000;//设置运行多少次才通知。
+const Notice=10;//设置运行多少次才通知。
 const log=1;//设置0关闭日志,1开启日志
-const noNotice=0;//1关闭通知0打开通知.
+const noNotice=1;//1关闭通知0打开通知.
 
 //以上配置说明
 
