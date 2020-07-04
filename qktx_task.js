@@ -3,7 +3,7 @@
 
 #趣看天下签到定时执行任务loon定时格式参考
 #趣看天下task Loon的格式
-cron "0 21,31,50 0-22 * * ?" script-path=qktx_task.js, tag=趣看天下
+cron "0 21,31,50 0-22 * * ?" script-path=https://raw.githubusercontent.com/tsuyoshi727/sbshine/master/qktx_task.js, tag=趣看天下
 
 2020.7.4更新，重大bug更新
 提示:
