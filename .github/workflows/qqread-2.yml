@@ -1,4 +1,4 @@
-name: qqread
+name: qqread2
 
 on:
   schedule:
@@ -27,4 +27,4 @@ jobs:
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
-            QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE }}
+            QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE2 }}
