@@ -2,7 +2,7 @@ name: qqread
 
 on:
   schedule:
-    - cron: '*/18 * * * *'
+    - cron: '*/17 * * * *'
   watch:
     types: [started]
 jobs:
