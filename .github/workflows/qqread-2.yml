@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          repository: iosrule-hub/Gongzhonghao-iosrule
         
       - name: 'Set up Python'
         uses: actions/setup-python@v1
@@ -22,7 +20,7 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r ./qqread/requirements.txt 
         
-      - name: '公众号iosrule' 
+      - name: 'qqread' 
         run: python3 ./qqread/qqread.py 
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
