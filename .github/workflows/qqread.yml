@@ -21,7 +21,7 @@ jobs:
         run: pip install -r ./qqread/requirements.txt 
         
       - name: 'qqread' 
-        run: qqread/qqread.py
+        run: python3 ./qqread/qqread.py
         env:
             DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
             DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
