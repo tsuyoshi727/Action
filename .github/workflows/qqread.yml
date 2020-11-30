@@ -1,8 +1,8 @@
 name: qqread
 
 on:
-  schedule:
-    - cron: '*/20 * * * *'
+  #schedule:
+    #- cron: '*/20 * * * *'
   watch:
     types: [started]
   repository_dispatch:
