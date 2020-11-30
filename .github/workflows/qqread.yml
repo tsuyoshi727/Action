@@ -5,6 +5,8 @@ on:
     - cron: '*/20 * * * *'
   watch:
     types: [started]
+  repository_dispatch:
+    types: qqread
 jobs:
   build:
     runs-on: ubuntu-latest
