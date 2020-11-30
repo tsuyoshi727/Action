@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE }}
+      QQ_READ_COOKIE2: ${{ secrets.QQ_READ_COOKIE2 }}
+      DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
+      DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,13 +28,10 @@ jobs:
       - name: 'qqread' 
         run: python3 ./qqread/qqread.py
         env:
-            DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
-            DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
             QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE }}
+       
        - name: ‘qqread2’ 
         run: python3 ./qqread/qqread.py
         env:
-            DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
-            DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
             QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE2 }}
 
