@@ -1,9 +1,0 @@
-# > Notion
-USER-AGENT,*Notion*,Global
-HOST-SUFFIX,loggly.com,Global
-HOST-SUFFIX,segment.com,Global
-HOST-SUFFIX,intercom,Global.io
-HOST-SUFFIX,intercom,Globalcdn.com,Global
-HOST-SUFFIX,amplitude.com,Global
-HOST-SUFFIX,notion.so
-HOST-SUFFIX,amazonaws.com,Global
