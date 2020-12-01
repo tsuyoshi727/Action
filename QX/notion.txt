@@ -1,0 +1,9 @@
+# > Notion
+USER-AGENT,*Notion*
+HOST-SUFFIX,loggly.com
+HOST-SUFFIX,segment.com
+HOST-SUFFIX,intercom.io
+HOST-SUFFIX,intercomcdn.com
+HOST-SUFFIX,amplitude.com
+HOST-SUFFIX,notion.so
+HOST-SUFFIX,amazonaws.com
