@@ -15,8 +15,7 @@ jobs:
       QQ_READ_COOKIE2: ${{ secrets.QQ_READ_COOKIE2 }}
       QQ_READ_COOKIE3: ${{ secrets.QQ_READ_COOKIE3 }}
       QQ_READ_COOKIE4: ${{ secrets.QQ_READ_COOKIE4 }}      
-      DJJ_BARK_COOKIE: $
-{{ secrets.DJJ_BARK_COOKIE }}
+      DJJ_BARK_COOKIE: ${{ secrets.DJJ_BARK_COOKIE }}
       DJJ_SEVER_JIANG: ${{ secrets.DJJ_SEVER_JIANG }}
     steps:
       - name: Checkout
