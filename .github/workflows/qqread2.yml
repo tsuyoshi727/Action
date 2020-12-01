@@ -30,8 +30,4 @@ jobs:
       - name: 'qqread三' 
         run: python3 ./qqread/qqread.py
         env:
-            QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE3 }}       
-      - name: 'qqread四'
-        run: python3 ./qqread/qqread.py
-        env:
-            QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE4 }}
+            QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE3 }}
