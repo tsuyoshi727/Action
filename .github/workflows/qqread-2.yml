@@ -1,4 +1,4 @@
-name: qqread
+name: qqread2
 
 on:
   #schedule:
@@ -6,7 +6,7 @@ on:
   watch:
     types: [started]
   repository_dispatch:
-    types: qqread
+    types: qqread2
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,11 +27,11 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r ./qqread/requirements.txt 
         
-      - name: 'qqread3' 
+      - name: 'qqread三' 
         run: python3 ./qqread/qqread.py
         env:
             QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE3 }}       
-      - name: 'qqread4'
+      - name: 'qqread四'
         run: python3 ./qqread/qqread.py
         env:
             QQ_READ_COOKIE: ${{ secrets.QQ_READ_COOKIE4 }}
