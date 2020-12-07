@@ -10,7 +10,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: qqreads
+    types: qqread_ziye
 
 jobs:
   build:
