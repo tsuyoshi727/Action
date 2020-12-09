@@ -9,8 +9,6 @@ on:
      #- cron: '*/11 * * * *'
   watch:
     types: started
-  repository_dispatch:
-    types: qqreads
 
 jobs:
   build:
@@ -38,7 +36,7 @@ jobs:
         if: env.QQREAD_TIMEHD
         run: |
           cd ~/Actions-Others
-          node qqreads.js
+          node Task/qqreads.js
         env:
           
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
@@ -48,5 +46,3 @@ jobs:
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-
-    
