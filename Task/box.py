@@ -41,7 +41,6 @@ import re
 import time
 import requests
 import traceback
-from setup import get_standard_time
 from utils import notify
 from utils.configuration import read
 
