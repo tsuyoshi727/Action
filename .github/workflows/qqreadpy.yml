@@ -1,4 +1,4 @@
-name: 企鹅读书
+name: 企鹅读书py
 
 on:
   workflow_dispatch:
@@ -6,6 +6,8 @@ on:
     - cron: '*/10 * * * *'
   watch:
     type: [started]
+  repository_dispatch:
+    types: qqreadpy
 
 jobs:
   build:
