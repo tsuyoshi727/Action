@@ -17,6 +17,10 @@ jobs:
 
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        QQREAD_BODY: ${{ secrets.QQREAD_BODY }}
+        QQREAD_TIMEURL: ${{ secrets.QQREAD_TIMEURL }}
+        QQREAD_TIMEHD: ${{ secrets.QQREAD_TIMEHD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -38,9 +42,6 @@ jobs:
         run: |
           node Task/qqreads.js
         env:         
-         QQREAD_BODY: ${{ secrets.QQREAD_BODY }}
-         QQREAD_TIMEURL: ${{ secrets.QQREAD_TIMEURL }}
-         QQREAD_TIMEHD: ${{ secrets.QQREAD_TIMEHD }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
@@ -49,3 +50,4 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
+
