@@ -8,12 +8,31 @@
 # @Software: PyCharm
 """
 此脚本使用 Python 语言根据 https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js 改写
-使用教程 https://github.com/TNanko/Scripts/blob/master/docs/qq_read.md
+需要自行使用代理软件获取 书籍 url ， headers 和 body
+1. MitM 添加 hostname=mqqapi.reader.qq.com
+2. 添加改写
+    圈x
+    #企鹅读书获取更新body
+    https:\/\/mqqapi\.reader\.qq\.com\/log\/v4\/mqq\/track url script-request-body https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js
+    #企鹅读书获取时长cookie
+    https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? url script-request-header https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js
+
+    loon
+    //企鹅读书获取更新body
+    http-request https:\/\/mqqapi\.reader\.qq\.com\/log\/v4\/mqq\/track script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js,requires-body=true, tag=企鹅读书获取更新body
+    //企鹅读书获取时长cookie
+    http-request https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js, requires-header=true, tag=企鹅读书获取时长cookie
+
+    surge
+    //企鹅读书获取更新body
+    企鹅读书获取更新body = type=http-request,pattern=https:\/\/mqqapi\.reader\.qq\.com\/log\/v4\/mqq\/track,script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js,
+    //企鹅读书获取时长cookie
+    企鹅读书获取时长cookie = type=http-request,pattern=https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid?,script-path=https://raw.githubusercontent.com/ziye12/JavaScript/master/Task/qqreads.js,
+3. 进书库选择一本书，看10秒以下，然后退出，获取书籍 url 和 headers 以及 body，看书一定不能超过10秒， 将获取到的值对应填入配置文件里面的 BOOK_URL，HEADERS 和 BODY （注意冒号后面的空格，不要带引号！）
 """
 
 import sys
 import os
-
 cur_path = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.split(cur_path)[0]
 sys.path.append(root_path)
@@ -342,7 +361,6 @@ def read_books(headers, book_url, upload_time):
         print(traceback.format_exc())
         return
 
-
 def track(headers, body):
     """
     数据追踪，解决1金币问题
@@ -352,10 +370,7 @@ def track(headers, body):
     """
     try:
         url = 'https://mqqapi.reader.qq.com/log/v4/mqq/track'
-        timestamp = re.compile(r'"dis": (.*?),')
-        body = json.dumps(body)
-        body = re.sub(timestamp.findall(body)[0], str(int(time.time() * 1000)), str(body))
-        response = requests.post(url=url, headers=headers, data=body).json()
+        response = requests.post(url=url, headers=headers, data=json.dumps(body)).json()
         if response['code'] == 0:
             return True
         else:
@@ -363,26 +378,6 @@ def track(headers, body):
     except:
         print(traceback.format_exc())
         return
-
-
-def get_red_packets(headers, pn):
-    """
-    今日金币统计
-    :param headers:
-    :param pn: 金币列表序号
-    :return:
-    """
-    try:
-        url = f'https://mqqapi.reader.qq.com/mqq/red_packet/user/trans/list?pn={pn}'
-        response = requests.get(url=url, headers=headers).json()
-        if response['code'] == 0:
-            return response['data']
-        else:
-            return
-    except:
-        print(traceback.format_exc())
-        return
-
 
 def qq_read():
     config_latest, config_current = read()
@@ -433,7 +428,7 @@ def qq_read():
             title = f'☆【企鹅读书】{beijing_datetime.strftime("%Y-%m-%d %H:%M:%S")} ☆'
             content = ''
 
-            # 调用 track 接口，为保证输出结果美观，输出信息写在后面
+            # 调用 track 接口，为保障输出美观，输出信息写在后面
             track_result = track(headers=headers, body=body)
             # 获取用户信息（昵称）
             user_info = get_user_info(headers=headers)
@@ -443,26 +438,6 @@ def qq_read():
             daily_tasks = get_daily_tasks(headers=headers)
             if daily_tasks:
                 content += f'\n【金币余额】剩余{daily_tasks["user"]["amount"]}金币，可提现{daily_tasks["user"]["amount"] // 10000}元'
-            # 查询今日获得金币数量
-            beijing_datetime_0 = beijing_datetime.strftime('%Y-%m-%d') + ' 00:00:00'
-            today_coins_total = 0
-            is_today_red_packet = True
-            for pn in range(1, 15):
-                red_packets = get_red_packets(headers=headers, pn=pn)
-                if red_packets and is_today_red_packet:
-                    for red_packet in red_packets['list']:
-                        if red_packet['content'] >= beijing_datetime_0:
-                            today_coins_total += red_packet['amount']
-                        else:
-                            is_today_red_packet = False
-                            break
-                elif not red_packets:
-                    content += f'\n【今日累计】请求接口错误！'
-                    break
-                else:
-                    content += f"\n【今日累计】{today_coins_total}金币，约{'{:4.2f}'.format(today_coins_total / 10000)}元"
-                    break
-
 
             # 开宝箱领金币
             if daily_tasks['treasureBox']['doneFlag'] == 0:
@@ -477,14 +452,12 @@ def qq_read():
                 if treasure_box_ads_reward:
                     content += f"\n【宝箱奖励翻倍】获得{treasure_box_ads_reward['amount']}金币"
 
-            # track(headers, body)的输出信息
             if track_result:
                 content += f'\n【数据跟踪】跟踪成功！'
             else:
                 content += f'\n【数据跟踪】跟踪失败！请重新抓取你的参数 body '
 
             content += f'\n🕛耗时：%.2f秒' % (time.time() - start_time)
-            content += f'\n如果帮助到您可以点下🌟STAR鼓励我一下，谢谢~'
             print(title)
             print(content)
             # 每天 22:00 - 22:10 发送消息推送
