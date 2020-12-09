@@ -1,4 +1,4 @@
-name: 企鹅读书py
+name: boxcheck
 
 on:
   workflow_dispatch:
