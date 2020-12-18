@@ -23,20 +23,24 @@ jobs:
         
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        run: |
+          git clone https://github.com/Choicc/JavaScript.git ~/JavaScript
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - name: npm install
         if: env.QQREAD_TIMEHD
-        run: 
+        run: |
+          cd ~/JavaScript
           npm install
       - name: '运行 【企鹅读书】'
         if: env.QQREAD_TIMEHD
-        run: 
-          node Script/qqreadsbox.js
-        env:          
+        run: |
+          cd ~/JavaScript
+          node Task/qqreadsbox.js
+        env:
+          
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
