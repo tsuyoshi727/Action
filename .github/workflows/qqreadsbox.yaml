@@ -32,7 +32,7 @@ jobs:
       - name: npm install
         if: env.QQREAD_TIMEHD
         run: |
-          cd ~/script
+          cd ~/scripts
           npm install
       - name: '运行 【企鹅读书】'
         if: env.QQREAD_TIMEHD
