@@ -29,7 +29,7 @@ jobs:
           npm install
       - name: '运行 【企鹅读书】node'
         run: |
-          node box.js
+          node Task/box.js
         env:
           QQREAD_BODY: ${{ secrets.QQREAD_BODY }}
           QQREAD_TIMEURL: ${{ secrets.QQREAD_TIMEURL }}
