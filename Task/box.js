@@ -67,12 +67,6 @@ const maxtime = 10//每日上传时长限制，默认20小时
 const wktimess = 1200//周奖励领取标准，默认1200分钟
 const CASH = 10;//提现金额 可设置0 1 2 10 30 50 100  设置0关闭
 
-//在``里面填写，多账号换行
-let qqreadbodyVal=``
-let qqreadtimeurlVal=``
-let qqreadtimeheaderVal=``
-
-
 const qqreadbdArr = [];
 let qqreadbodyVal = "";
 const qqreadtimeurlArr = [];
