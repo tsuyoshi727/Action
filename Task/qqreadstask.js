@@ -209,79 +209,35 @@ if ($request && $request.url.indexOf("addReadTimeWithBid?") >= 0) {
 
 }
 
-
-
 let K = 0;
 all();
 function all() {
   qqreadbodyVal = qqreadbdArr[K];
   qqreadtimeurlVal = qqreadtimeurlArr[K];
   qqreadtimeheaderVal = qqreadtimehdArr[K];
-  for (let i = 0; i < 15; i++) {
-    (function (i) {
-      setTimeout(
-        function () {
-          if (i == 0) {
-            qqreadinfo(); // 用户名
-            qqreadwktime(); // 周时长查询
-            qqreadconfig(); // 时长查询
-          } else if (i == 1) qqreadtask();
-		  else if (
-            i == 2) qqreadtrack();
-          // 任务列表
-          else if (
-            i == 3 &&
-            config.data &&
-            config.data.pageParams.todayReadSeconds / 3600 <= maxtime
-          )
-            qqreadtime();
-          // 上传时长
-          else if (i == 4 && task.data && task.data.taskList[1].doneFlag == 0)
-            qqreadssr1();
-          // 阅读金币1
-          else if (i == 5 && task.data && task.data.taskList[2].doneFlag == 0) {
-            qqreadsign(); // 金币签到
-            qqreadtake(); // 阅豆签到
-          } else if (i == 6 && task.data && task.data.treasureBox.doneFlag == 0)
-            qqreadbox();
-          // 宝箱
-          else if (i == 7 && task.data && task.data.taskList[0].doneFlag == 0)
-            qqreaddayread();
-          // 阅读任务
-          else if (i == 8 && task.data && task.data.taskList[1].doneFlag == 0)
-            qqreadssr2();
-          // 阅读金币2
-          else if (i == 9) qqreadpick();
-          // 领周时长奖励
-          else if (i == 10 && task.data && task.data.taskList[3].doneFlag == 0)
-            qqreadvideo();
-          // 视频任务
-          else if (i == 11 && task.data && task.data.taskList[2].doneFlag == 0)
-            qqreadsign2();
-          // 签到翻倍
-          else if (
-            i == 12 &&
-            task.data &&
-            task.data.treasureBox.videoDoneFlag == 0
-          )
-            qqreadbox2();
-          // 宝箱翻倍
-          else if (i == 13 && task.data && task.data.taskList[1].doneFlag == 0)
-            qqreadssr3();
-          // 阅读金币3
-          else if (i == 14 && K < qqreadbdArr.length - 1) {
-            K += 1;
-            all();
-          } else if (i == 14 && K == qqreadbdArr.length - 1) {
-            showmsg(); // 通知
-            $.done();
-          }
-        },
-
-        (i + 1) * dd * 1000
-      );
-    })(i);
-  }
+  (() => {
+    qqreadtask(K).then(() => {
+      if (task.data && task.data.treasureBox.doneFlag == 0) {
+        return qqreadbox(K)
+      }
+      return
+    }).
+      then(() => {
+        if (task.data &&
+          task.data.treasureBox.videoDoneFlag == 0) {
+          return qqreadbox2(K)
+        }
+        return
+      }
+      ).then(() => {
+        if (K < qqreadbdArr.length - 1) {
+          K += 1;
+          all();
+        }
+      }).catch(err => {
+        console.log(err)
+      });
+  })();
 }
 
 // 任务列表
