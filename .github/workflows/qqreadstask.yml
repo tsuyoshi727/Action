@@ -38,7 +38,8 @@ jobs:
         if: env.QQREAD_TIMEHD
         run: |
           cd ~/Action
-          node Task/qqreads.js
+          node Task/qqreadstask
+          .js
         env:
           
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
