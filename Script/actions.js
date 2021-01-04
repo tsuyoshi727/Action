@@ -1,10 +1,3 @@
-/*
- * @Author: lxk0301 https://github.com/lxk0301 
- * @Date: 2020-10-24 18:53:29 
- * @Last Modified by: lxk0301
- * @Last Modified time: 2020-11-05 18:54:13
- */
-
 const $ = new Env(‘触发Action’);
 const notifyInterval = 0;//1开启通知，0关闭
 
