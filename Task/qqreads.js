@@ -34,7 +34,7 @@ boxjs链接      https://raw.githubusercontent.com/ziye12/JavaScript/master/Task
 
 ⚠️cookie获取方法：
 
-进 https://m.q.qq.com/a/s/d3eacc70120b9a37e46bad408c0c4c2a
+进 https://m.q.qq.com/a/s/73770e47c2e7bd7512ad6f370d4d1ab5
 
 进书库⚠️选择一本书,看10秒以下,然后退出，获取时长url和时长header以及更新body，看书一定不能超过10秒
 
