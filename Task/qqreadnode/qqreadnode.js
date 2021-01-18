@@ -60,7 +60,7 @@ http-request https:\/\/mqqapi\.reader\.qq\.com\/mqq\/addReadTimeWithBid? script-
 
 */
 
-const BOX = 2;//设置为0 日常任务，设置为1 单开宝箱，设置为2 完整功能版
+const BOX = 1;//设置为0 日常任务，设置为1 单开宝箱，设置为2 完整功能版
 
 
 
@@ -77,7 +77,7 @@ let obj;
 
 const COOKIE = $.isNode() ? require("./qqreadCOOKIE") : "";
 const notify = $.isNode() ? require("./sendNotify") : "";
-const notifyttt = 1// 0为关闭外部推送，1为12 23 点外部推送
+const notifyttt = 0// 0为关闭外部推送，1为12 23 点外部推送
 const notifyInterval = 2;// 0为关闭通知，1为所有通知，2为12 23 点通知  ， 3为 6 12 18 23 点通知 
 const logs = 0;   //0为关闭日志，1为开启
 const maxtime = 10//每日上传时长限制，默认20小时
