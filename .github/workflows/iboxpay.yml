@@ -27,7 +27,7 @@ jobs:
           npm install
       - name: '运行 【smile】'
         run: |
-          node Task/iboxpay.js
+          node XP/iboxpay.js
         env:
           XP_iboxpayHEADER: ${{ secrets.XP_iboxpayHEADER }}
         XP_CASH: ${{ secrets.XP_CASH }}
