@@ -268,7 +268,9 @@ async function all() {
     );
     $.done();
   }
-
+  //循环
+  while(true){
+  
   for (let i = 0; i < Length; i++) {
     if (COOKIE.qqreadbodyVal) {
       qqreadbodyVal = QQ_READ_COOKIES.qqreadbodyVal[i];
@@ -405,6 +407,10 @@ async function all() {
     }
 
     await showmsg();//通知	
+    
+    }
+    console.log(`========================本次任务执行完毕，休息二十分钟==============================\n`);
+         await $.wait(1200000)
 
   }
 }
