@@ -27,7 +27,7 @@ jobs:
           npm install
       - name: '运行 【多看点】'
         run: |
-          node Node/test.js
+          node Node/dkd.js
         env:
           DKDURL: ${{ secrets.DKDURL }}
           DKDHD: ${{ secrets.DKDHD }}
