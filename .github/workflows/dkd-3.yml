@@ -29,7 +29,7 @@ jobs:
         run: |
           node Node/dkd.js
         env:
-          DKDURL: ${{ secrets.DKDURL }}
+          DKDURL: ${{ secrets.DKDURL3 }}
           DKDHD: ${{ secrets.DKDHD3 }}
           DKDBODY: ${{ secrets.DKDBODY3 }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
