@@ -1,0 +1,45 @@
+name: 多看点
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4,10,22 * * *'
+  watch:
+    types: started
+  repository_dispatch:
+    types: dkd
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: tsuyoshi727/action-group
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行 【多看点】'
+        run: |
+          node Node/dkd.js
+        env:
+          DKDURL: ${{ secrets.DKDURL }}
+          DKDHD: ${{ secrets.DKDHD3 }}
+          DKDBODY: ${{ secrets.DKDBODY3 }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          FRUITSHARECODES: ${{ secrets.FRUITSHARECODES }}
+          FRUIT_BEAN_CARD: ${{ secrets.FRUIT_BEAN_CARD }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          FRUIT_NOTIFY_CONTROL: ${{ secrets.FRUIT_NOTIFY_CONTROL }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
