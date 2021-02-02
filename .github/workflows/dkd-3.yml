@@ -3,7 +3,7 @@ name: 多看点3
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 0-15/1 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -32,6 +32,7 @@ jobs:
           DKDURL: ${{ secrets.DKDURL3 }}
           DKDHD: ${{ secrets.DKDHD3 }}
           DKDBODY: ${{ secrets.DKDBODY3 }}
+          DKDTXURL: ${{ secrets.DKDTXURL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           FRUITSHARECODES: ${{ secrets.FRUITSHARECODES }}
