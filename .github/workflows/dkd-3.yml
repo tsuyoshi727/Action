@@ -3,7 +3,7 @@ name: 多看点3
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4,10,22 * * *'
+    - cron: '0 4 * * *'
   watch:
     types: started
   repository_dispatch:
