@@ -409,6 +409,7 @@ async function all() {
     await showmsg();//通知	
     
     }
+    await showmsg();//通知
     console.log(`========================本次任务执行完毕，休息二十分钟==============================\n`);
          await $.wait(1200000)
 
