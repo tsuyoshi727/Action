@@ -24,7 +24,6 @@ boxjs链接      https://raw.githubusercontent.com/ziye12/JavaScript/master/Task
 1.3 增加一个独立的cookie文件
 1.3 增加cookie获取时间显示
 1.4 单开宝箱不再ck失效提示，增加6点后显示今日收益
-1.5 调整宝箱策略，20分钟运行一次就行
 
 ⚠️cookie获取方法：
 
@@ -34,12 +33,6 @@ boxjs链接      https://raw.githubusercontent.com/ziye12/JavaScript/master/Task
 
 可能某些页面会卡住，但是能获取到cookie，再注释cookie重写就行了！
 
-Secrets对应关系如下，多账号默认换行
-
-qqreadbodyVal         👉   QQREAD_BODY
-qqreadtimeurlVal      👉   QQREAD_TIMEURL
-qqreadtimeheaderVal   👉   QQREAD_TIMEHD
-CASH                  👉   QQREAD_CASH  提现标准 可设置0 1 2 10 30 50 100 设置0关闭
 
 
 ⚠️宝箱奖励为20分钟一次，自己根据情况设置定时，建议设置11分钟一次
@@ -74,16 +67,22 @@ const BOX = 2;//设置为0 日常任务，设置为1 单开宝箱，设置为2 �
 
 const jsname = '企鹅读书'
 const $ = Env(jsname)
+let task, tz, kz, config = '';
+let wktime;
+let ydrw;
+let dk;
+let ljyd;
+let sp;
+let obj;
+
 const COOKIE = $.isNode() ? require("./qqreadCOOKIE") : "";
 const notify = $.isNode() ? require("./sendNotify") : "";
 const notifyttt = 1// 0为关闭外部推送，1为12 23 点外部推送
-const notifyInterval = 0;// 0为关闭通知，1为所有通知，2为12 23 点通知  ， 3为 6 12 18 23 点通知 
+const notifyInterval = 2;// 0为关闭通知，1为所有通知，2为12 23 点通知  ， 3为 6 12 18 23 点通知 
 const logs = 0;   //0为关闭日志，1为开启
 const maxtime = 10//每日上传时长限制，默认20小时
 const wktimess = 1200//周奖励领取标准，默认1200分钟
-
-let task, tz, kz, config = '', CASH = '', COOKIES_SPLIT = '' ;
-let dk,ljyd,sp,ydrw,wktime;
+let CASH = 1;
 
 let qqreadbodyVal = ``;
 let qqreadtimeurlVal = ``;
@@ -101,18 +100,16 @@ const nowTimes = new Date(
   8 * 60 * 60 * 1000
 );
 // 今日0点时间戳
-if ($.isNode()) {
-  daytime =
-    new Date(new Date().toLocaleDateString()).getTime() - 8 * 60 * 60 * 1000;
-// 没有设置 QQREAD_CASH 则默认为 0 不提现
- CASH = process.env.QQREAD_CASH || 1;
-} else {
-  daytime = new Date(new Date().toLocaleDateString()).getTime();
-}
+const daytime = new Date(nowTimes.toLocaleDateString()).getTime();
 
-if ($.isNode() &&process.env.QQREAD_BODY) {
+if ($.isNode() &&
+  process.env.QQREAD_BODY) {
+  // 没有设置 QQREAD_CASH 则默认为 0 不提现
+  CASH = process.env.QQREAD_CASH || 0;
+
   // 自定义多 cookie 之间连接的分隔符，默认为 \n 换行分割，不熟悉的不要改动和配置，为了兼容本地 node 执行
   COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
+
   console.log(
     `============ cookies分隔符为：${JSON.stringify(
       COOKIES_SPLIT
@@ -318,7 +315,7 @@ async function all() {
         await $.wait(4000);
         await qqreadssr3();//阅读金币3
       }
-      if (nowTimes.getHours() >= 23 && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 59)) {
+      if (nowTimes.getHours() >= 0 && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 59)) {
         if (CASH >= 1 && task.data && task.data.user.amount >= CASH * 10000) {
           await qqreadwithdraw();//提现
         }
@@ -379,7 +376,10 @@ async function all() {
       if (task.data && task.data.treasureBox.timeInterval <= 10000) {
         await $.wait(task.data.treasureBox.timeInterval)
         await qqreadbox();//宝箱
-        await $.wait(4000)
+      }
+      await $.wait(4000)
+      if (task.data && task.data.treasureBox.timeInterval - 600000 <= 10000) {
+        await $.wait(task.data.treasureBox.timeInterval - 600000)
         await qqreadbox2();//宝箱翻倍
       }
       if (ydrw.doneFlag == 0 && config.data && config.data.pageParams.todayReadSeconds / 60 >= 30) {
@@ -387,7 +387,7 @@ async function all() {
         await $.wait(4000);
         await qqreadssr3();//阅读金币3
       }
-      if (nowTimes.getHours() >= 23 && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 59)) {
+      if (nowTimes.getHours() >= 0 && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 59)) {
         if (CASH >= 1 && task.data && task.data.user.amount >= CASH * 10000) {
           await qqreadwithdraw();//提现
         }
@@ -897,7 +897,7 @@ async function getAmounts() {
       await $.wait(200)
     }
   }
-  if (logs) $.log(`${O}, 今日收益: ${amounts}金币,约${(amounts / 10000.0).toFixed(2)}元.`);
+  if (logs) $.log(`${$.name}, 今日收益: ${amounts}金币,约${(amounts / 10000.0).toFixed(2)}元.`);
   tz += `【今日收益】:获得${amounts}金币,约${(amounts / 10000.0).toFixed(2)}元.\n`
   kz += `【今日收益】:获得${amounts}金币,约${(amounts / 10000.0).toFixed(2)}元.\n`
 }
