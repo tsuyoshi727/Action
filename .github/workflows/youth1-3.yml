@@ -3,7 +3,7 @@ name: zqshare3
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 6-10 * * *'
+    - cron: '0 6-10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest       
