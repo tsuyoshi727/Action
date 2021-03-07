@@ -1,9 +1,9 @@
-name: zqshare1
+name: zqshare3
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 11-15 * * *'
+    - cron: '*/30 6-10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest       
@@ -25,4 +25,4 @@ jobs:
       - name: '运行 【youthshare】'
         run: |
           cd ~/Task   
-          node Task/youthshare.js
+          node Task/youthshare3.js
