@@ -53,40 +53,10 @@ boxjs：https://raw.githubusercontent.com/xiaokxiansheng/js/master/Task/cxk10.bo
 
  */
 
+const jobname = '书旗小说'
+    const $ = Env(jobname)
 
-
-
-
-
-
-const jobname = '书旗小说';
-const $ = Env(jobname);
-
-
-
-/*ck解密*/
-let fs = require('fs');
-const crypto = require('crypto');
-
-function aesDecrypt(encrypted, key) {
-    const decipher = crypto.createDecipher('aes192', key);
-    let decrypted = decipher.update(encrypted, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
-    return decrypted;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-let ReadTimes = 0;
+    let ReadTimes = 0;
 let vediogold = 0;
 let drawgold = 0;
 
@@ -103,11 +73,8 @@ let drawgold = 0;
 async function all() {
     //nodejs运行
     if ($.isNode()) {
-		let encrypted=fs.readFileSync('./sqxsck.txt', 'utf8');	
-		key = process.env.ENCRYPT_KEY;
-		let decrypted = await aesDecrypt(encrypted, key);
-		sqxsck=JSON.parse(decrypted);
-        //let sqxsck = require('./sqxsck.json');
+
+        let sqxsck = require('./sqxsck.json');
         let CountNumber = sqxsck.settings[1].val;
         $.log(`============ 共 ${CountNumber} 个${jobname}账号=============`);
         for (let i = 0; i < CountNumber; i++) {
