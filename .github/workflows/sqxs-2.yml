@@ -30,4 +30,4 @@ jobs:
           curl ipinfo.io/json
       - name: '运行 【sqxs】'
         run: |
-          node sqxs/g2/sqys2.js
+          node sqxs/g2/sqxs2.js
