@@ -5,8 +5,8 @@ name: sqxs6
 
 on:
     workflow_dispatch:
-    schedule:
-      - cron: "0 0,8 * * *"
+    #schedule:
+      #- cron: "0 0,8 * * *"
     watch:
       types: [started]
     repository_dispatch:
