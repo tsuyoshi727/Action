@@ -1,4 +1,4 @@
-name: 中青阅读1
+name: 中青阅读2
 
 on:
   workflow_dispatch:
@@ -25,4 +25,4 @@ jobs:
       - name: '运行 【中青阅读1】'
         run: |
           cd ~/Action
-          node youth/qx.youthread.js
+          node youth/liv.youthread.js
