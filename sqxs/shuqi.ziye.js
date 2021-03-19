@@ -19,6 +19,9 @@ boxjs链接  https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThx
 3.12 - 4 修复ck获取问题
 3.12-5 去除无用任务，精简ck至26条
 3.14 修复极速版书城报错
+3.15 修复收益获取ck显示
+3.18 独立COOKIE增加boxjs复制会话模式
+3.193.19 修复ac报错
 
 ⚠️ 时间设置    7 0-23 * * *    每小时 1次就行 
 ⚠️一共2个软件  普通版15条 极速版11条  共      26个ck  👉 26条 Secrets 
@@ -106,7 +109,7 @@ http-request https:\/\/jcollection\.shuqireader\.com\/* url script-request-body 
 
 #书旗小说获取body
 
-#阅读 签到  分享 奖励 收取奖励  抽奖次数 抽奖 极速版视频 极速版签到视频 极速版阅读 极速版签到  极速版分享 极速版书城
+#阅读 签到  分享 奖励 收取奖励  抽奖次数 抽奖 视频 极速版视频 极速版签到视频 极速版阅读 极速版签到  极速版分享 极速版书城
 书旗小说获取header = type=https:\/\/ocean\.shuqireader\.com\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
 #收益 任务 极速版任务
 书旗小说获取header = type=https:\/\/render\.shuqireader\.com\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/shuqi.js
@@ -115,7 +118,7 @@ http-request https:\/\/jcollection\.shuqireader\.com\/* url script-request-body 
 
 
 */
-GXRZ = '3.14 修复极速版书城报错'
+GXRZ = '3.19 修复ac报错'
 const $ = Env("书旗小说");
 $.idx = ($.idx = ($.getval('shuqiSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ? require("./sendNotify") : ``;
@@ -126,32 +129,32 @@ const notifyInterval = 2; // 0为关闭通知，1为所有通知，2为12 23 点
 $.message = '', COOKIES_SPLIT = '', CASH = '', XH = 0, ddtime = '';
 CZ = 10
 Length = 0
-const shuqiuserurlArr = [];
-const shuqisyurlArr = [];
-const shuqisybodyArr = [];
-const shuqispbodyArr = [];
-const shuqiscbodyArr = [];
-const shuqiydbodyArr = [];
-const shuqiqdbodyArr = [];
-const shuqirwbodyArr = [];
-const shuqifxbodyArr = [];
-const shuqisprwurlArr = [];
-const shuqijlbodyArr = [];
-const shuqisqjlbodyArr = [];
-const shuqicjyurlArr = [];
-const shuqicjcsbodyArr = [];
-const shuqicjbodyArr = [];
-const shuqijsspbodyArr = [];
-const shuqijsydurlArr = [];
-const shuqijsydbodyArr = [];
-const shuqijsqdbodyArr = [];
-const shuqijsqdspyurlArr = [];
-const shuqijsqdspbodyArr = [];
-const shuqijsrwbodyArr = [];
-const shuqijsfxbodyArr = [];
-const shuqijsbookurlArr = [];
-const shuqijsbookbodyArr = [];
-const shuqijssprwurlArr = [];
+let shuqiuserurlArr = [];
+let shuqisyurlArr = [];
+let shuqisybodyArr = [];
+let shuqispbodyArr = [];
+let shuqiscbodyArr = [];
+let shuqiydbodyArr = [];
+let shuqiqdbodyArr = [];
+let shuqirwbodyArr = [];
+let shuqifxbodyArr = [];
+let shuqisprwurlArr = [];
+let shuqijlbodyArr = [];
+let shuqisqjlbodyArr = [];
+let shuqicjyurlArr = [];
+let shuqicjcsbodyArr = [];
+let shuqicjbodyArr = [];
+let shuqijsspbodyArr = [];
+let shuqijsydurlArr = [];
+let shuqijsydbodyArr = [];
+let shuqijsqdbodyArr = [];
+let shuqijsqdspyurlArr = [];
+let shuqijsqdspbodyArr = [];
+let shuqijsrwbodyArr = [];
+let shuqijsfxbodyArr = [];
+let shuqijsbookurlArr = [];
+let shuqijsbookbodyArr = [];
+let shuqijssprwurlArr = [];
 let shuqiuserurlVal = ``;
 let shuqisyurlVal = ``;
 let shuqisybodyVal = ``;
@@ -178,42 +181,48 @@ let shuqijsfxbodyVal = ``;
 let shuqijsbookurlVal = ``;
 let shuqijsbookbodyVal = ``;
 let shuqijssprwurlVal = ``;
-const middleshuqiuserURL = [];
-const middleshuqisyURL = [];
-const middleshuqisyBODY = [];
-const middleshuqispBODY = [];
-const middleshuqiscBODY = [];
-const middleshuqiydBODY = [];
-const middleshuqiqdBODY = [];
-const middleshuqirwBODY = [];
-const middleshuqifxBODY = [];
-const middleshuqisprwURL = [];
-const middleshuqijlBODY = [];
-const middleshuqisqjlBODY = [];
-const middleshuqicjyURL = [];
-const middleshuqicjcsBODY = [];
-const middleshuqicjBODY = [];
-const middleshuqijsspBODY = [];
-const middleshuqijsydURL = [];
-const middleshuqijsydBODY = [];
-const middleshuqijsqdBODY = [];
-const middleshuqijsqdspyURL = [];
-const middleshuqijsqdspBODY = [];
-const middleshuqijsrwBODY = [];
-const middleshuqijsfxBODY = [];
-const middleshuqijsbookURL = [];
-const middleshuqijsbookBODY = [];
-const middleshuqijssprwURL = [];
+let middleshuqiuserURL = [];
+let middleshuqisyURL = [];
+let middleshuqisyBODY = [];
+let middleshuqispBODY = [];
+let middleshuqiscBODY = [];
+let middleshuqiydBODY = [];
+let middleshuqiqdBODY = [];
+let middleshuqirwBODY = [];
+let middleshuqifxBODY = [];
+let middleshuqisprwURL = [];
+let middleshuqijlBODY = [];
+let middleshuqisqjlBODY = [];
+let middleshuqicjyURL = [];
+let middleshuqicjcsBODY = [];
+let middleshuqicjBODY = [];
+let middleshuqijsspBODY = [];
+let middleshuqijsydURL = [];
+let middleshuqijsydBODY = [];
+let middleshuqijsqdBODY = [];
+let middleshuqijsqdspyURL = [];
+let middleshuqijsqdspBODY = [];
+let middleshuqijsrwBODY = [];
+let middleshuqijsfxBODY = [];
+let middleshuqijsbookURL = [];
+let middleshuqijsbookBODY = [];
+let middleshuqijssprwURL = [];
+if ($.isNode() && COOKIE.datas && COOKIE.datas[0].val != '') {
+    console.log(
+        `============ cookie方式为：方式一 boxjs复制会话 =============\n`
+    );
+}
 if ($.isNode() && COOKIE.shuqiuserurl && COOKIE.shuqiuserurl != '') {
     console.log(
-        `============ cookie方式为：方式一 boxjs复制数据 =============\n`
+        `============ cookie方式为：方式二 boxjs复制数据 =============\n`
     );
 }
 if ($.isNode() && COOKIE.shuqiuserurlVal && COOKIE.shuqiuserurlVal != '') {
     console.log(
-        `============ cookie方式为：方式二 直接填写 =============\n`
+        `============ cookie方式为：方式三 直接填写 =============\n`
     );
 }
+
 if ($.isNode() && process.env.SQ_shuqiuserURL) {
     COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
     console.log(
@@ -341,93 +350,99 @@ if ($.isNode() && process.env.SQ_shuqiuserURL) {
     } else {
         middleshuqicjBODY = process.env.SQ_shuqicjBODY.split();
     }
-    if (
-        process.env.SQ_shuqijsspBODY &&
-        process.env.SQ_shuqijsspBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsspBODY = process.env.SQ_shuqijsspBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsspBODY = process.env.SQ_shuqijsspBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsydURL &&
-        process.env.SQ_shuqijsydURL.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsydURL = process.env.SQ_shuqijsydURL.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsydURL = process.env.SQ_shuqijsydURL.split();
-    }
-    if (
-        process.env.SQ_shuqijsydBODY &&
-        process.env.SQ_shuqijsydBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsydBODY = process.env.SQ_shuqijsydBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsydBODY = process.env.SQ_shuqijsydBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsqdBODY &&
-        process.env.SQ_shuqijsqdBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsqdBODY = process.env.SQ_shuqijsqdBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsqdBODY = process.env.SQ_shuqijsqdBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsqdspyURL &&
-        process.env.SQ_shuqijsqdspyURL.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsqdspyURL = process.env.SQ_shuqijsqdspyURL.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsqdspyURL = process.env.SQ_shuqijsqdspyURL.split();
-    }
-    if (
-        process.env.SQ_shuqijsqdspBODY &&
-        process.env.SQ_shuqijsqdspBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsqdspBODY = process.env.SQ_shuqijsqdspBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsqdspBODY = process.env.SQ_shuqijsqdspBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsrwBODY &&
-        process.env.SQ_shuqijsrwBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsrwBODY = process.env.SQ_shuqijsrwBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsrwBODY = process.env.SQ_shuqijsrwBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsfxBODY &&
-        process.env.SQ_shuqijsfxBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsfxBODY = process.env.SQ_shuqijsfxBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsfxBODY = process.env.SQ_shuqijsfxBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijsbookURL &&
-        process.env.SQ_shuqijsbookURL.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsbookURL = process.env.SQ_shuqijsbookURL.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsbookURL = process.env.SQ_shuqijsbookURL.split();
-    }
-    if (
-        process.env.SQ_shuqijsbookBODY &&
-        process.env.SQ_shuqijsbookBODY.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijsbookBODY = process.env.SQ_shuqijsbookBODY.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijsbookBODY = process.env.SQ_shuqijsbookBODY.split();
-    }
-    if (
-        process.env.SQ_shuqijssprwURL &&
-        process.env.SQ_shuqijssprwURL.indexOf(COOKIES_SPLIT) > -1
-    ) {
-        middleshuqijssprwURL = process.env.SQ_shuqijssprwURL.split(COOKIES_SPLIT);
-    } else {
-        middleshuqijssprwURL = process.env.SQ_shuqijssprwURL.split();
+
+    if (process.env.SQ_shuqijsspBODY) {
+
+
+        if (
+            process.env.SQ_shuqijsspBODY &&
+            process.env.SQ_shuqijsspBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsspBODY = process.env.SQ_shuqijsspBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsspBODY = process.env.SQ_shuqijsspBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsydURL &&
+            process.env.SQ_shuqijsydURL.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsydURL = process.env.SQ_shuqijsydURL.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsydURL = process.env.SQ_shuqijsydURL.split();
+        }
+        if (
+            process.env.SQ_shuqijsydBODY &&
+            process.env.SQ_shuqijsydBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsydBODY = process.env.SQ_shuqijsydBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsydBODY = process.env.SQ_shuqijsydBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsqdBODY &&
+            process.env.SQ_shuqijsqdBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsqdBODY = process.env.SQ_shuqijsqdBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsqdBODY = process.env.SQ_shuqijsqdBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsqdspyURL &&
+            process.env.SQ_shuqijsqdspyURL.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsqdspyURL = process.env.SQ_shuqijsqdspyURL.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsqdspyURL = process.env.SQ_shuqijsqdspyURL.split();
+        }
+        if (
+            process.env.SQ_shuqijsqdspBODY &&
+            process.env.SQ_shuqijsqdspBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsqdspBODY = process.env.SQ_shuqijsqdspBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsqdspBODY = process.env.SQ_shuqijsqdspBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsrwBODY &&
+            process.env.SQ_shuqijsrwBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsrwBODY = process.env.SQ_shuqijsrwBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsrwBODY = process.env.SQ_shuqijsrwBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsfxBODY &&
+            process.env.SQ_shuqijsfxBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsfxBODY = process.env.SQ_shuqijsfxBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsfxBODY = process.env.SQ_shuqijsfxBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijsbookURL &&
+            process.env.SQ_shuqijsbookURL.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsbookURL = process.env.SQ_shuqijsbookURL.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsbookURL = process.env.SQ_shuqijsbookURL.split();
+        }
+        if (
+            process.env.SQ_shuqijsbookBODY &&
+            process.env.SQ_shuqijsbookBODY.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijsbookBODY = process.env.SQ_shuqijsbookBODY.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijsbookBODY = process.env.SQ_shuqijsbookBODY.split();
+        }
+        if (
+            process.env.SQ_shuqijssprwURL &&
+            process.env.SQ_shuqijssprwURL.indexOf(COOKIES_SPLIT) > -1
+        ) {
+            middleshuqijssprwURL = process.env.SQ_shuqijssprwURL.split(COOKIES_SPLIT);
+        } else {
+            middleshuqijssprwURL = process.env.SQ_shuqijssprwURL.split();
+        }
+
     }
 }
 if (COOKIE && COOKIE.shuqiuserurlVal) {
@@ -481,12 +496,17 @@ if (COOKIE && COOKIE.shuqiuserurlVal) {
     }
     Length = SQ_COOKIES.shuqiuserurlVal.length;
 }
+if (COOKIE.datas && COOKIE.datas[0].val != '') {
+
+    shuqiCount = COOKIE.settings.find(item => item.id === `shuqiCount`);
+    Length = shuqiCount.val
+}
 if (COOKIE.shuqiuserurl) {
     cks = 26 //ck数量
     COOKIEstringify = JSON.stringify(COOKIE);
     Length = COOKIEstringify.match(/getBindinfo/g).length
 }
-if (!COOKIE) {
+if (!COOKIE.datas && !COOKIE.shuqiuserurlVal&& !COOKIE.shuqiuserurl) {
     if ($.isNode()) {
         Object.keys(middleshuqiuserURL).forEach((item) => {
             if (middleshuqiuserURL[item]) {
@@ -924,7 +944,7 @@ function GetCookie() {
                     } else {
                         $.setdata(shuqisyurlVal, "shuqisyurl" + $.idx);
                         $.log(
-                            `[${$.name + $.idx}] 获取收益shuqisyurlVal✅: 成功,shuqisyurlVal: $shuqisyurlVal}`
+                            `[${$.name + $.idx}] 获取收益shuqisyurlVal✅: 成功,shuqisyurlVal: ${shuqisyurlVal}`
                         );
                         $.msg($.name + $.idx, `获取收益shuqisyurlVal: 成功🎉`, ``);
                         $.setdata(shuqisybodyVal, "shuqisybody" + $.idx);
@@ -938,7 +958,7 @@ function GetCookie() {
             } else {
                 $.setdata(shuqisyurlVal, "shuqisyurl" + $.idx);
                 $.log(
-                    `[${$.name + $.idx}] 获取收益shuqisyurlVal✅: 成功,shuqisyurlVal: $shuqisyurlVal}`
+                    `[${$.name + $.idx}] 获取收益shuqisyurlVal✅: 成功,shuqisyurlVal: ${shuqisyurlVal}`
                 );
                 $.msg($.name + $.idx, `获取收益shuqisyurlVal: 成功🎉`, ``);
                 $.setdata(shuqisybodyVal, "shuqisybody" + $.idx);
@@ -950,8 +970,8 @@ function GetCookie() {
             };
         }
     }
-	
-	    //获取极速版书城
+
+    //获取极速版书城
     if ($request && $request.url.indexOf("convert") >= 0 && $request.body.indexOf("actTaskId=344") >= 0 && $request.body.indexOf("appVer=1") >= 0) {
         const shuqijsbookbodyVal = $request.body;
         if (shuqijsbookbodyVal) {
@@ -1168,7 +1188,7 @@ function GetCookie() {
         }
     }
     //获取分享
-    if ($request && $request.url.indexOf("activity") >= 0 && $request.url.indexOf("reward") >= 0 && $request.body.indexOf("actTaskId=304") >= 0) {
+    if ($request && $request.url.indexOf("activity") >= 0 && $request.body.indexOf("appVer=4") >= 0 && $request.body.indexOf("actTaskId=357") >= 0) {
         const shuqifxbodyVal = $request.body;
         if (shuqifxbodyVal) {
             if (XH == 1) {
@@ -1706,6 +1726,72 @@ async function all() {
         return;
     }
     for (let i = 0; i < Length; i++) {
+
+        if (COOKIE.datas && COOKIE.datas[0].val != '') {
+
+
+            if (i == 0) {
+                op = ``
+            } else {
+                op = i + 1
+            }
+
+            shuqiuserurl = COOKIE.datas.find(item => item.key === `shuqiuserurl${op}`);
+            shuqisyurl = COOKIE.datas.find(item => item.key === `shuqisyurl${op}`);
+            shuqisybody = COOKIE.datas.find(item => item.key === `shuqisybody${op}`);
+            shuqispbody = COOKIE.datas.find(item => item.key === `shuqispbody${op}`);
+            shuqiscbody = COOKIE.datas.find(item => item.key === `shuqiscbody${op}`);
+            shuqiydbody = COOKIE.datas.find(item => item.key === `shuqiydbody${op}`);
+            shuqiqdbody = COOKIE.datas.find(item => item.key === `shuqiqdbody${op}`);
+            shuqirwbody = COOKIE.datas.find(item => item.key === `shuqirwbody${op}`);
+            shuqifxbody = COOKIE.datas.find(item => item.key === `shuqifxbody${op}`);
+            shuqisprwurl = COOKIE.datas.find(item => item.key === `shuqisprwurl${op}`);
+            shuqijlbody = COOKIE.datas.find(item => item.key === `shuqijlbody${op}`);
+            shuqisqjlbody = COOKIE.datas.find(item => item.key === `shuqisqjlbody${op}`);
+            shuqicjyurl = COOKIE.datas.find(item => item.key === `shuqicjyurl${op}`);
+            shuqicjcsbody = COOKIE.datas.find(item => item.key === `shuqicjcsbody${op}`);
+            shuqicjbody = COOKIE.datas.find(item => item.key === `shuqicjbody${op}`);
+            shuqijsspbody = COOKIE.datas.find(item => item.key === `shuqijsspbody${op}`);
+            shuqijsydurl = COOKIE.datas.find(item => item.key === `shuqijsydurl${op}`);
+            shuqijsydbody = COOKIE.datas.find(item => item.key === `shuqijsydbody${op}`);
+            shuqijsqdbody = COOKIE.datas.find(item => item.key === `shuqijsqdbody${op}`);
+            shuqijsqdspyurl = COOKIE.datas.find(item => item.key === `shuqijsqdspyurl${op}`);
+            shuqijsqdspbody = COOKIE.datas.find(item => item.key === `shuqijsqdspbody${op}`);
+            shuqijsrwbody = COOKIE.datas.find(item => item.key === `shuqijsrwbody${op}`);
+            shuqijsfxbody = COOKIE.datas.find(item => item.key === `shuqijsfxbody${op}`);
+            shuqijsbookurl = COOKIE.datas.find(item => item.key === `shuqijsbookurl${op}`);
+            shuqijsbookbody = COOKIE.datas.find(item => item.key === `shuqijsbookbody${op}`);
+            shuqijssprwurl = COOKIE.datas.find(item => item.key === `shuqijssprwurl${op}`);
+
+
+            shuqiuserurlVal = shuqiuserurl.val;
+            shuqisyurlVal = shuqisyurl.val;
+            shuqisybodyVal = shuqisybody.val;
+            shuqispbodyVal = shuqispbody.val;
+            shuqiscbodyVal = shuqiscbody.val;
+            shuqiydbodyVal = shuqiydbody.val;
+            shuqiqdbodyVal = shuqiqdbody.val;
+            shuqirwbodyVal = shuqirwbody.val;
+            shuqifxbodyVal = shuqifxbody.val;
+            shuqisprwurlVal = shuqisprwurl.val;
+            shuqijlbodyVal = shuqijlbody.val;
+            shuqisqjlbodyVal = shuqisqjlbody.val;
+            shuqicjyurlVal = shuqicjyurl.val;
+            shuqicjcsbodyVal = shuqicjcsbody.val;
+            shuqicjbodyVal = shuqicjbody.val;
+            shuqijsspbodyVal = shuqijsspbody.val;
+            shuqijsydurlVal = shuqijsydurl.val;
+            shuqijsydbodyVal = shuqijsydbody.val;
+            shuqijsqdbodyVal = shuqijsqdbody.val;
+            shuqijsqdspyurlVal = shuqijsqdspyurl.val;
+            shuqijsqdspbodyVal = shuqijsqdspbody.val;
+            shuqijsrwbodyVal = shuqijsrwbody.val;
+            shuqijsfxbodyVal = shuqijsfxbody.val;
+            shuqijsbookurlVal = shuqijsbookurl.val;
+            shuqijsbookbodyVal = shuqijsbookbody.val;
+            shuqijssprwurlVal = shuqijssprwurl.val;
+
+        }
         if (COOKIE && COOKIE.shuqiuserurlVal) {
             shuqiuserurlVal = SQ_COOKIES.shuqiuserurlVal[i];
             shuqisyurlVal = SQ_COOKIES.shuqisyurlVal[i];
@@ -1768,7 +1854,7 @@ async function all() {
             shuqijsbookbodyVal = COOKIE[Object.keys(COOKIE)[iv + 25]];
             shuqijssprwurlVal = COOKIE[Object.keys(COOKIE)[iv + 26]];
         }
-        if (!COOKIE) {
+        if (!COOKIE.datas && !COOKIE.shuqiuserurlVal&& !COOKIE.shuqiuserurl) {
             shuqiuserurlVal = shuqiuserurlArr[i];
             shuqisyurlVal = shuqisyurlArr[i];
             shuqisybodyVal = shuqisybodyArr[i];
@@ -2429,8 +2515,11 @@ function jsreads(timeout = 0) {
             }
             setTimeout(() => {
                 if ($.jsreads.status == 200) {
-                    console.log(`极速版阅读奖励：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`);
+                    console.log(`极速版阅读奖励：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}\n`);
                     $.message += `【极速版阅读奖励】：获得20次奖励,今日已得${$.jsreads.data.todayBizCoinAmount}金币\n`;
+                } else {
+                    console.log(`极速版阅读奖励：${$.jsreads.message}\n`);
+                    $.message += `【极速版阅读奖励】：${$.jsreads.message}\n`;
                 }
             }, 96000)
         }, timeout)
