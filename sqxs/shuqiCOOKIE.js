@@ -33,7 +33,7 @@ let cookie1 = {"id":"shuqi","name":"书旗小说APP","keys":["shuqiuserurl","shu
 
 
 //方式二
-let cookie2 = 
+let cookie2 = {}
 
 
 
