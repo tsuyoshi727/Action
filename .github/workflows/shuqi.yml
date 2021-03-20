@@ -5,8 +5,8 @@ name: 书旗@ziye
 
 on:
     workflow_dispatch:
-    #schedule:
-      #- cron: "0 2,10,13 * * *"
+    schedule:
+      - cron: "0 */1 * * *"
     watch:
       types: [started]
     repository_dispatch:
