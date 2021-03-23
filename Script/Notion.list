@@ -1,0 +1,27 @@
+IP-CIDR,108.162.236.1/24  // Notion,US 
+IP-CIDR,172.64.32.1/24  // Notion,HK 
+IP-CIDR,104.16.160.1/24  // Notion,US 
+IP-CIDR,172.64.0.0/24  // Notion,US 
+IP-CIDR,104.28.14.0/24  // Notion,SG 
+
+DOMAIN-SUFFIX,notion.so
+DOMAIN-SUFFIX,amazonaws.com
+DOMAIN-SUFFIX,amplitude.com
+DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,contentful.com
+DOMAIN-SUFFIX,ctfassets.net
+DOMAIN-SUFFIX,embed.ly
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,loggly.com
+DOMAIN-SUFFIX,segment.com
+DOMAIN-SUFFIX,segment.io
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-SUFFIX,twitter.com
+DOMAIN-SUFFIX,typeform.com
+DOMAIN-SUFFIX,typeform.com
+DOMAIN-SUFFIX,unsplash.com
