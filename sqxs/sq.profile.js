@@ -2204,9 +2204,23 @@ function readlist(timeout = 0) {
                             sqsc = shuqiscbodyVal.split('readingLen%22%3A')[1].split('%7D')[0]
                             if (timestamp >= daytime() && $.readlist.data.readTime < 180) {
                                 await upload() //上传时长
-                                await $.wait(10000)
+                                await upload()
                                 await upload() //上传时长
-                                await $.wait(10000)
+                                await upload()
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
                                 await upload() //上传时长
                             } else {
                                 console.log(`上传时长：请获取今日时长CK\n`);
