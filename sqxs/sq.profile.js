@@ -2222,6 +2222,15 @@ function readlist(timeout = 0) {
                                 await upload() //上传时长
                                 await upload() //上传时长
                                 await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                            
                             } else {
                                 console.log(`上传时长：请获取今日时长CK\n`);
                                 $.message += `【上传时长】：请获取今日时长CK\n`;
