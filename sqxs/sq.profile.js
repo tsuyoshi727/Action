@@ -2254,6 +2254,12 @@ function readlist(timeout = 0) {
                                 await upload() //上传时长
                                 await upload() //上传时长
                                 await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
+                                await upload() //上传时长
                                 
                             
                             } else {
