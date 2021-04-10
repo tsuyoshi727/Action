@@ -7,6 +7,8 @@ on:
      - cron: '0 4,10 * * *'
   watch:
     types: started
+  repository_dispatch:
+    types: yq
 jobs:
   build:
     runs-on: ubuntu-latest
