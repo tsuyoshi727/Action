@@ -2,7 +2,7 @@ name: cat1
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */1 * * *"
   watch:
     types: started
 jobs:
