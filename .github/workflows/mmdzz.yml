@@ -1,4 +1,4 @@
-name: 萌喵大作战
+name: cat1
 on:
   workflow_dispatch:
   schedule:
