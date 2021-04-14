@@ -7,10 +7,10 @@ let mmdzzurl = $.getdata('mmdzzurl')
 let mmdzzhd = $.getdata('mmdzzhd')
 !(async () => {
   if (typeof $request !== "undefined") {
-    await mmdzzck("{\"Connection\":\"keep-alive\",\"Accept-Encoding\":\"gzip, deflate, br\",\"Content-Type\":\"application/json\",\"Origin\":\"https://catxxx.higaoyao.com\",\"User-Agent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148\",\"platform\":\"ios\",\"Authorization\":\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9kIiwiaWF0IjoxNjE4MzY1MjE1LCJleHAiOjE2MjA5MDMyMTUsIm5iZiI6MTYxODM2NTIxNSwidWlkIjoxMTAyMjg5fQ.Z2-QU9gBsM7oQO3kh4XHCEMVtFLPnSQnLnFCQgKw2mI\",\"versionCode\":\"33\",\"Host\":\"xxlapi.higaoyao.com:553\",\"Referer\":\"https://catxxx.higaoyao.com/v228/index.html\",\"Accept-Language\":\"zh-cn\",\"Accept\":\"*/*\",\"Content-Length\":\"117\"}")
+    await mmdzzck()
    
   } else {mmdzzurlArr.push("{\"ed\":\"EbI35ZyWY0t/gBhhEQNwoyYj9n9qGSV1jZ4eeJA91a0HeGtPCtem76u+DxFHUKh5Vr/LeVUEVAbOtJL8bSqEO5Q+PaWs2spnmAvSiYWAeIM=\"}")
-    mmdzzhdArr.push()
+    mmdzzhdArr.push("{\"Connection\":\"keep-alive\",\"Accept-Encoding\":\"gzip, deflate, br\",\"Content-Type\":\"application/json\",\"Origin\":\"https://catxxx.higaoyao.com\",\"User-Agent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148\",\"platform\":\"ios\",\"Authorization\":\"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9kIiwiaWF0IjoxNjE4MzY1MjE1LCJleHAiOjE2MjA5MDMyMTUsIm5iZiI6MTYxODM2NTIxNSwidWlkIjoxMTAyMjg5fQ.Z2-QU9gBsM7oQO3kh4XHCEMVtFLPnSQnLnFCQgKw2mI\",\"versionCode\":\"33\",\"Host\":\"xxlapi.higaoyao.com:553\",\"Referer\":\"https://catxxx.higaoyao.com/v228/index.html\",\"Accept-Language\":\"zh-cn\",\"Accept\":\"*/*\",\"Content-Length\":\"117\"}")
     let mmdzzcount = ($.getval('mmdzzcount') || '1');
   for (let i = 2; i <= mmdzzcount; i++) {
     mmdzzurlArr.push($.getdata(`mmdzzurl${i}`))
