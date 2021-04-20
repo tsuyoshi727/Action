@@ -3,48 +3,8 @@
     "name": "书旗完整 脚本订阅",
     "author": "@caixukun2",
     "apps": [{
-            "id": "wx",
-            "name": "微信code",
-            "keys": [
-                "wxcode"
-            ],
-            "author": "@caixukun1",
-			"settings": [{
-                    "id": "type",
-                    "name": "操作方法",
-                    "val": "1",
-                    "type": "number",
-                    "desc": "1表示微信code提取,0表示微信code登录"
-                },{
-                    "id": "logincode",
-                    "name": "微信登录code",
-                    "val": "1",
-                    "type": "string",
-                    "desc": "输入要登陆的微信code"
-                }
-            ],
-            "repo": "https://raw.githubusercontent.com/",
-            "icons": [
-                "https://s3.ax1x.com/2021/02/06/yYzYWR.png",
-                "https://s3.ax1x.com/2021/02/06/yYzYWR.png"
-            ],
-            "script": "https://raw.githubusercontent.com/"
-        },{
-            "id": "xp",
-            "name": "笑谱",
-            "keys": [
-                "watchvediocks"
-            ],
-            "author": "@caixukun1",
-            "repo": "https://raw.githubusercontent.com/",
-            "icons": [
-                "https://s3.ax1x.com/2021/02/06/yYzYWR.png",
-                "https://s3.ax1x.com/2021/02/06/yYzYWR.png"
-            ],
-            "script": "https://raw.githubusercontent.com/"
-        }, {
             "id": "sqxs",
-            "name": "书旗小说完整",
+            "name": "书旗小说完整40",
             "keys": [
                 "readck1",
                 "receivecoinck1",
@@ -268,77 +228,77 @@
                 "vediogoldprizeck32",
                 "vediodrawprizeck32",
                 "drawck32",
-                "userinfock32"
+                "userinfock32",
                 
                 "readck32",
                 "receivecoinck32",
                 "vediogoldprizeck32",
                 "vediodrawprizeck32",
                 "drawck32",
-                "userinfock32"
+                "userinfock32",
                 
                 "readck32",
                 "receivecoinck32",
                 "vediogoldprizeck32",
                 "vediodrawprizeck32",
                 "drawck32",
-                "userinfock32"
+                "userinfock32",
                 
                 "readck33",
                 "receivecoinck33",
                 "vediogoldprizeck33",
                 "vediodrawprizeck33",
                 "drawck33",
-                "userinfock33"
+                "userinfock33",
                 
                 "readck34",
                 "receivecoinck34",
                 "vediogoldprizeck34",
                 "vediodrawprizeck34",
                 "drawck34",
-                "userinfock34"
+                "userinfock34",
                 
                 "readck35",
                 "receivecoinck35",
                 "vediogoldprizeck35",
                 "vediodrawprizeck35",
                 "drawck35",
-                "userinfock35"
+                "userinfock35",
                 
                 "readck36",
                 "receivecoinck36",
                 "vediogoldprizeck36",
                 "vediodrawprizeck36",
                 "drawck36",
-                "userinfock36"
+                "userinfock36",
                 
                 "readck37",
                 "receivecoinck37",
                 "vediogoldprizeck37",
                 "vediodrawprizeck37",
                 "drawck37",
-                "userinfock37"
+                "userinfock37",
                 
                 "readck38",
                 "receivecoinck38",
                 "vediogoldprizeck38",
                 "vediodrawprizeck38",
                 "drawck38",
-                "userinfock38"
+                "userinfock38",
                 
                 "readck39",
                 "receivecoinck39",
                 "vediogoldprizeck39",
                 "vediodrawprizeck39",
                 "drawck39",
-                "userinfock39"
+                "userinfock39",
                 
                 "readck40",
                 "receivecoinck40",
                 "vediogoldprizeck40",
                 "vediodrawprizeck40",
                 "drawck40",
-                "userinfock40"
+                "userinfock40",
 
             ],
             "author": "@caixukun1",
