@@ -27,6 +27,6 @@ jobs:
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          QLPHD: ${{ secrets.QLPHD }}
-          KZYHD: ${{ secrets.KZYHD }}
+          QLP_HD: ${{ secrets.QLP_HD }}
+          KZY_HD: ${{ secrets.KZY_HD }}
     
