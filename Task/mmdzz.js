@@ -11,15 +11,15 @@ if(!$.isNode()&&qlphd.indexOf("\n") ==-1){
     qlphdArr.push($.getdata('qlphd'))
 } else {
     if($.isNode()){
-    if (process.env.qlp_hd && process.env.qlp_hd.indexOf('\n') > -1) {
-        qlphd = process.env.qlp_hd.split('\n');
+    if (process.env.QLP_HD && process.env.QLP_HD.indexOf('\n') > -1) {
+        qlphd = process.env.QLP_HD.split('\n');
     } else {
-        qlphd = [process.env.qlp_hd]
+        qlphd = [process.env.QLP_HD]
     };
-    if (process.env.kzy_hd && process.env.kzy_hd.indexOf('\n') > -1) {
-        kzyhd = process.env.kzy_hd.split('\n');
+    if (process.env.KZY_HD && process.env.KZY_HD.indexOf('\n') > -1) {
+        kzyhd = process.env.KZY_HD.split('\n');
     } else {
-        kzyhd = [process.env.kzy_hd]
+        kzyhd = [process.env.KZY_HD]
     };
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&qlphd.indexOf("\n")>-1){
