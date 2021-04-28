@@ -11,10 +11,10 @@ let tx = 1  //数字改为1运行脚本可自动提现。联系手动运行。�
     await qlpck()
    
   } else {
-    if (process.env.qlpurl && process.env.qlpurl.indexOf('\n') > -1) {
-      qlpurlArr.push(process.env.qlpurl.split('\n'))
+    if (process.env.qlphd && process.env.qlphd.indexOf('\n') > -1) {
+      qlphdArr.push(process.env.qlphd.split('\n'))
     } else {
-      qlpurlArr.push(process.env.qlpurl.split())
+      qlphdArr.push(process.env.qlphd.split())
     };
     if (process.env.kzyhd && process.env.kzyhd.indexOf('\n') > -1) {
       kzyhdArr.push(process.env.kzyhd.split('\n'))
