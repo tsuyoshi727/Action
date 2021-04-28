@@ -7,19 +7,19 @@ let qlphd = $.getdata('qlphd')
 let kzyhd = $.getdata('kzyhd')
 let tx = 1  //数字改为1运行脚本可自动提现。联系手动运行。需要提现的时候再改
 if ($.isNode()) {
-  if (process.env.kzyhd && process.env.kzyhd.indexOf('\n') > -1) {
-   kzyhdArr = process.env.kzyhd.split('\n');
+  if (process.env.KZYHD && process.env.KZYHD.indexOf('\n') > -1) {
+   kzyhdArr = process.env.KZYHD.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   kzyhdArr = process.env.kzyhd.split()
+   KZYHDArr = process.env.KZYHD.split()
   };
-  if (process.env.qlphd && process.env.qlphd.indexOf('\n') > -1) {
-   qlphdArr = process.env.qlphd.split('\n');
+  if (process.env.QLPHD && process.env.QLPHD.indexOf('\n') > -1) {
+   qlphdArr = process.env.QLPHD.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   qlphdArr = process.env.qlphd.split()
+   qlphdArr = process.env.QLPHD.split()
   };
- } 
+ }
 !(async () => {
   if (typeof $request !== "undefined") {
     await qlpck()
