@@ -6,34 +6,50 @@ let times = Math.round(Date.now() / 1000)
 let qlphd = $.getdata('qlphd')
 let kzyhd = $.getdata('kzyhd')
 let tx = 1  //数字改为1运行脚本可自动提现。联系手动运行。需要提现的时候再改
-
-if ($.isNode()) {
-  if (process.env.QLP_HD && process.env.QLP_HD.indexOf('\n') > -1) {
-   qlphdArr = process.env.QLP_HD.split('\n');
-   console.log(`您选择的是用换行隔开\n`)
-  } else {
-   qlphdArr = process.env.QLP_HD.split()
-  };
-  
-  if (process.env.KZY_HD && process.env.KZY_HD.indexOf('\n') > -1) {
-   kzyhdArr = process.env.KZY_HD.split('\n');
-   console.log(`您选择的是用换行隔开\n`)
-  } else {
-   kzyhdArr = process.env.KZY_HD.split()
-  };
-	
-    console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
-    console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
- }
- else{
-    qlphdArr.push($.getdata('qlphd'))
+if(!$.isNode()&&qlphd.indexOf("\n") ==-1){
     kzyhdArr.push($.getdata('kzyhd'))
+    qlphdArr.push($.getdata('qlphd'))
+} else {
+    if($.isNode()){
+    if (process.env.qlp_hd && process.env.qlp_hd.indexOf('\n') > -1) {
+        qlphd = process.env.qlp_hd.split('\n');
+    } else {
+        qlphd = [process.env.qlp_hd]
+    };
+    if (process.env.kzy_hd && process.env.kzy_hd.indexOf('\n') > -1) {
+        kzyhd = process.env.kzy_hd.split('\n');
+    } else {
+        kzyhd = [process.env.kzy_hd]
+    };
+    console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()} =============\n`);
+ } else if(!$.isNode()&&qlphd.indexOf("\n")>-1){
+   qlphd = qlphd.split("\n")
+   kzyhd = kzyhd.split("\n")
+};
+    Object.keys(qlphd).forEach((item) =>{
+        if (qlphd[item]) {
+        qlphdArr.push(qlphd[item])
+        }
+    });
+    Object.keys(kzyhd).forEach((item) =>{
+        if (kzyhd[item]) {
+            kzyhdArr.push(kzyhd[item])
+        }
+    });		
+
+}
+!(async () => {
+  if (typeof $request !== "undefined") {
+    await qlpck()
+   
+  } else {
+    //qlphdArr.push($.getdata('qlphd'))
+    //kzyhdArr.push($.getdata('kzyhd'))
     let qlpcount = ($.getval('qlpcount') || '1');
   for (let i = 2; i <= qlpcount; i++) {
     qlphdArr.push($.getdata(`qlphd${i}`))
     kzyhdArr.push($.getdata(`kzyhd${i}`))
   }
-}
     console.log(`------------- 共${qlphdArr.length}个账号-------------\n`)
       for (let i = 0; i < qlphdArr.length; i++) {
         if (qlphdArr[i]) {
