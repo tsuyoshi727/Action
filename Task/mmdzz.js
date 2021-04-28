@@ -6,21 +6,27 @@ let times = Math.round(Date.now() / 1000)
 let qlphd = $.getdata('qlphd')
 let kzyhd = $.getdata('kzyhd')
 let tx = 1  //数字改为1运行脚本可自动提现。联系手动运行。需要提现的时候再改
+if ($.isNode()) {
+  if (process.env.kzyhd && process.env.kzyhd.indexOf('\n') > -1) {
+   kzyhdArr = process.env.kzyhd.split('\n');
+   console.log(`您选择的是用换行隔开\n`)
+  } else {
+   kzyhdArr = process.env.kzyhd.split()
+  };
+  if (process.env.qlphd && process.env.qlphd.indexOf('\n') > -1) {
+   qlphdArr = process.env.qlphd.split('\n');
+   console.log(`您选择的是用换行隔开\n`)
+  } else {
+   qlphdArr = process.env.qlphd.split()
+  };
+ } 
 !(async () => {
   if (typeof $request !== "undefined") {
     await qlpck()
    
   } else {
-    if (process.env.qlphd && process.env.qlphd.indexOf('\n') > -1) {
-      qlphdArr.push(process.env.qlphd.split('\n'))
-    } else {
-      qlphdArr.push(process.env.qlphd.split())
-    };
-    if (process.env.kzyhd && process.env.kzyhd.indexOf('\n') > -1) {
-      kzyhdArr.push(process.env.kzyhd.split('\n'))
-    } else {
-      kzyhdArr.push(process.env.kzyhd.split())
-    };
+    qlphdArr.push($.getdata('qlphd'))
+    kzyhdArr.push($.getdata('kzyhd'))
     let qlpcount = ($.getval('qlpcount') || '1');
   for (let i = 2; i <= qlpcount; i++) {
     qlphdArr.push($.getdata(`qlphd${i}`))
