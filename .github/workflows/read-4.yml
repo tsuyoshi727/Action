@@ -1,4 +1,4 @@
-name: 中青阅读4
+name: 阅读4
 
 on:
   workflow_dispatch:
@@ -25,4 +25,4 @@ jobs:
           
       - name: '运行 【中青阅读2】'
         run: |
-          node youth/read1.js
+          node youth/read4.js

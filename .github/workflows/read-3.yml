@@ -1,0 +1,28 @@
+name: 阅读3
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '0 1,10 * * *'
+  watch:
+    types: started
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+      TZ: Asia/shanghai
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: |
+          npm install
+          
+      - name: '运行 【中青阅读2】'
+        run: |
+          node youth/read3.js
