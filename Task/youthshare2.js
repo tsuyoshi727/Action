@@ -3,9 +3,14 @@ const $ = new Env('youthshare');
 let md5 = require('md5-node');
 let nowTime;
 let wxck;
-let articles = ["https://focus.youth.cn/article/s?signature=8DpYRNzAGL5bkKE1RBQwBzCLEejvcORGpxX1ov3Xqel0ngwVyZ&uid=46837595&phone_code=1160e4f96e84608384d9f87f87a0a44f&scid=36662429&time=1615016460&app_version=1.7.8&sign=9a2a67ccf1cbc723a6415b68a6b7c809",
-"https://focus.youth.cn/article/s?signature=RpqGjEWYvLyBl2g1lqPgqAsDLjnAuvdPpKZ4D56Pd3OMonkQx9&uid=47692088&phone_code=6b7e436b42d6e438d0bea4c97a61c168&scid=36660492&time=1615016908&app_version=1.7.8&sign=04dd4bf4c9109cf79cd1987bca5c9957",
-"https://focus.youth.cn/article/s?signature=qbBkjWwN2L3nP684eJEyy9SdXwMjfBx5QMq7gRyAEYpXDmeo0O&uid=50565700&phone_code=eb56c2d93692c0871487e692b21a24d9&scid=36662820&time=1615017161&app_version=1.7.8&sign=02dc8042cdcb048b9d8e03f1ae1b8fb6"]
+let articles = ["",
+"",
+"",
+"",
+"",
+"",
+"",
+""]
 
 let encodearticles;
 
