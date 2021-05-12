@@ -25,4 +25,4 @@ jobs:
           
       - name: '运行 【中青阅读2】'
         run: |
-          node read1.js
+          node youth/read1.js
