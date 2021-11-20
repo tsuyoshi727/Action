@@ -3,7 +3,7 @@ name: 阅读z
 on:
   workflow_dispatch:
   schedule:
-     - cron: '0 0-14/3 * * *'
+     - cron: '0 1,10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest    
