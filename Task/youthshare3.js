@@ -7,7 +7,8 @@ let articles = ["https://focus.youth.cn/article/s?signature=KYJBMEDexQprwO0aJBRY
 "https://focus.youth.cn/article/s?signature=0Z3Jgv96wqmVPeM7orxMOrSY08ObIx50Z064jpGDnANbo8KXQr&uid=60404098&phone_code=b1c2a859ed96df3761da50551011836a&scid=40890442&time=1637435658&app_version=2.0.2&sign=002a4b2cd6eb0a8f370f68937ed2751c",
 "https://focus.youth.cn/article/s?signature=gzRBYKnQDmkx3yL1PRdBVKsemmVlhbjYGXJ7GV8wZPJorvpjEW&uid=61189336&phone_code=8d81070ea0a179a70e2e4d87e3ec4363&scid=41188479&time=1639255587&app_version=2.0.0&sign=0ee9530f2c0d198fc2532f3d2400efff",
 "https://focus.youth.cn/article/s?signature=XwoQBWe23qDAVz946lyRAQhpmmPoUk6xd66avNyb8EMlgYnm6k&uid=61189675&phone_code=24f0492fa37e946e436c41a7deb9359c&scid=41210442&time=1639255639&app_version=2.0.0&sign=3f60f2c805c462052d3c28cddc413f82",
-"https://focus.youth.cn/article/s?signature=6K3Zgj0LVrQbJw94VZJgBGFobbnPuoxknZ34mxB5qW8oDnvelE&uid=61189679&phone_code=28318e5a67bec3ef13df1cac6f36bfba&scid=41207033&time=1639255668&app_version=2.0.0&sign=bd22dd993dade68e73e864e2b505a4e6"]
+"https://focus.youth.cn/article/s?signature=6K3Zgj0LVrQbJw94VZJgBGFobbnPuoxknZ34mxB5qW8oDnvelE&uid=61189679&phone_code=28318e5a67bec3ef13df1cac6f36bfba&scid=41207033&time=1639255668&app_version=2.0.0&sign=bd22dd993dade68e73e864e2b505a4e6",
+"https://focus.youth.cn/article/s?signature=BzyAgkjdGMQWRVY752YEPQHkxxzJHvV8o9ealK9opXE8ZO3mrb&uid=61189680&phone_code=efda8cc0f7fcbe4affebd85ed7a729da&scid=41208512&time=1639255692&app_version=2.0.0&sign=8d88e1940ce3a41b724720a2639007a4"]
 
 let encodearticles;
 
