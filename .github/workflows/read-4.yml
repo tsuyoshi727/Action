@@ -1,4 +1,4 @@
-name: 阅读2
+name: 阅读yun
 
 on:
   workflow_dispatch:
