@@ -6,7 +6,7 @@
 
 const $ = new Env("中青看点阅读")
 //const notify = $.isNode() ? require('./sendNotify') : '';
-let ReadArr = [], timebodyVal ="";
+let ReadArr = [], timebodyVal ="p=9NwGV8Ov71o%3DGvDnjwMsu_ld4qx0YVkhCGSN79Nz9uYVRT2FlKyzzeRQkfNpi91m1uMr6_-349OB-6aJlP8QT1ZdQPfuBKAN73038JxG2PDvPLwzRpKLSOsodHj_5p2KvGLJLTxe6lfbK5_TBTkHhXvca5GLmeMMIM2me3E4Xk0LlYXICZPYUVS41NtlD5E7UuAorta1aI2dBccYKNuPUxk8FoPjwhkKrdpBFEpJQX6Fgt1xtgtn2op214Ziymm_P21yeDS0ead4kTHY-vrdaYkUIBLUjAnjJ3CTiAmPO_jrEu_tER24IZ1JJF0VglaRvAyQafYeb0zzCNCjWg9KYfLumVUxCeoPVnaXEq85IdIfaEcZycDrzn9U911AkJyUrg-BZ2iVoi8EHIOJ3AImosX1Y7nnDqELyOY_WT4mxx_hWZvWz4jcG4YYyYnLQXnn5SW5V-nuYMti1Pr4OpjQnZbsvVWOtgvYm437LyYaWQnBve7VEFhTEOWhWbLng7MQnSxxd3T3IOhdsp4ZrEoXTkm33RO_4I6C4AoQoidXad9wrWk9pYaEcK99ZnSxCGq4f9te9d5pOmj3-0gQvMfQiC6x2DYRhdHSd73KvxG_LjvRAIiC0pYpg571uFAys55UhUw8RNNF1vPHFjUNQmDD7EeBp2lUPCDgNGwYlVmma6SwDUCvrrdBk7orjFp7nmvB_Ci4ZdO2U-s5lc7rwVV3PKudIxKL7rUZdjC35rQ741LSTnN98j55UcySsuhYnZ6Ek4-qfOxFUC19T-ZtXsbA-btmYgIuJf4oJrtU6ejhTVYCML8GOrWEgfK44JwRl75qxsFVBjf0Dq37";
 let YouthBody = ""//填
 let smallzq = false;
 let indexLast = $.getdata('zqbody_index');
