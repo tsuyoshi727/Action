@@ -1,4 +1,4 @@
-name: zqshare1
+name: zqshare-new
 
 on:
   workflow_dispatch:
